@@ -1,126 +1,269 @@
 const portfolioData = {
   personalInfo: {
-    name: "Aniket Kumar",
-    handle: "@aniketkumar",
-    tagline: "B.Tech CSE Student · Machine Learning & Cloud",
+    name: "Amlan Sarkar",
+    handle: "@amlansarkar",
+    tagline: "B.Tech CSE Student · Data Analytics · Python · SQL",
     role: "CSE Undergrad",
     location: "Ranchi, Jharkhand, India",
     timezone: "Asia/Kolkata",
     utcOffset: "+05:30",
-    phone: "+91 9153804578",
-    email: "aniketkr2101@gmail.com",
-    linkedin: "https://linkedin.com/in/aniketkumar001",
-    github: "https://github.com/Aniketkumar-01",
-    resume: "Aniket_Kumar_Resume.pdf",
-    status: "Available for internships & full-time roles",
-    statusAvailable: true,
-    about: "Computer Science student at Sarala Birla University. I know my way around Python, machine learning basics, and web fundamentals. Currently learning, experimenting, and trying to build things that actually work."
+    phone: "+91 62991-05883",
+    email: "amlan.sarkar404@gmail.com",
+    linkedin: "https://www.linkedin.com/in/amlansarkar-",
+    github: "https://github.com/Amlan-Sarkar"
   },
+
+  about: {
+    title: "About Me",
+    description:
+      "B.Tech Computer Science & Engineering student specializing in Data Science. I work with Python, SQL, data analysis, visualization, feature engineering, and machine learning to turn raw data into meaningful insights and practical solutions."
+  },
+
   education: [
     {
+      degree: "B.Tech in Computer Science & Engineering",
       institution: "Sarala Birla University",
-      location: "Ranchi, Jharkhand",
-      degree: "Bachelor of Technology in Computer Science & Engineering",
-      specialization: "Data Science & Cloud Computing (DSCC)",
+      location: "Jharkhand, India",
       duration: "Aug 2023 – Present",
-      cgpa: "8.02 / 10",
-      highlights: [
-        "Relevant Coursework: Data Structures & Algorithms, Database Management Systems, Machine Learning Foundations, Cloud Infrastructure.",
-        "Maintained consistent academic distinction across semesters with 8.02 CGPA."
+      specialization: "Data Science",
+      cgpa: "7.65 / 10"
+    }
+  ],
+
+  experience: [
+    {
+      role: "Data Analytics Intern",
+      company: "IBM SkillsBuild | AICTE",
+      duration: "Aug 2026 – Sep 2026",
+      link: "",
+      description: [
+        "Analyzed 14,204 sales records across 1,559 products and 10 outlets to identify sales drivers and predict item-level outlet sales.",
+        "Performed data cleaning, exploratory data analysis, visualization, and feature engineering to uncover retail sales patterns and business insights.",
+        "Delivered an interactive Streamlit application covering sales prediction, model performance, methodology, and feature-importance analysis."
+      ],
+      skills: [
+        "Python",
+        "SQL",
+        "Pandas",
+        "NumPy",
+        "Data Cleaning",
+        "EDA",
+        "Data Visualization",
+        "Feature Engineering",
+        "Streamlit"
+      ]
+    },
+
+    {
+      role: "Machine Learning Intern",
+      company: "IIIT Ranchi (IEEE Sponsored)",
+      duration: "May 2026 – Jul 2026",
+      link: "",
+      description: [
+        "Developed an end-to-end stock market prediction system using historical stock data, return-based features, and a 60-day lookback window.",
+        "Built and evaluated six forecasting approaches: BiLSTM, GRU, XGBoost, Random Forest, Linear Regression, and a weighted Ensemble using RMSE, MAE, MAPE, R², and directional accuracy.",
+        "Achieved R² of 0.8510 with BiLSTM and Random Forest and integrated SHAP-based interpretability into an interactive Streamlit dashboard."
+      ],
+      skills: [
+        "Python",
+        "Machine Learning",
+        "BiLSTM",
+        "GRU",
+        "XGBoost",
+        "Random Forest",
+        "SHAP",
+        "Streamlit"
       ]
     }
   ],
-  experience: [
-    {
-      role: "Machine Learning Intern",
-      company: "IIIT Ranchi",
-      location: "Ranchi, India",
-      duration: "May 2026 – July 2026",
-      type: "Internship",
-      link: "https://colab.research.google.com/drive/1hpX3fsm4CEysk9i_4PBCJ2h5ZaahkWe6",
-      image: "assets/heart_disease_banner.svg?v=2",
-      description: [
-        "Built and benchmarked 5 classification algorithms (Random Forest, Logistic Regression, SVM, XGBoost, Neural Network) for clinical heart disease risk prediction.",
-        "Achieved 90.2% accuracy, 96.4% recall, and 0.959 AUC with the optimized Random Forest ensemble, significantly minimizing false negative rates.",
-        "Executed end-to-end data preprocessing, feature selection, outlier handling, and cross-validated hyperparameter tuning.",
-        "Authored comprehensive technical documentation and evaluation reports for review by senior research faculty and mentors."
-      ],
-      skills: ["Python", "Scikit-Learn", "Machine Learning", "Hyperparameter Tuning", "Random Forest", "Research"]
-    }
-  ],
+
   projects: [
     {
-      id: "solar-rooftop-analyzer",
-      title: "Solar Rooftop Analyzer",
-      category: "Full-Stack & Geospatial ML",
-      featured: true,
-      year: "2026",
-      link: "https://solar-rooftop-analyzer.streamlit.app/",
-      github: "https://github.com/Aniketkumar-01/Solar-Rooftop-Analyzer-",
-      image: "assets/solar_rooftop_banner.svg",
-      summary: "Interactive geospatial satellite application enabling property owners to trace rooftops and estimate solar energy yield, CO₂ offset, and cost savings.",
-      description: [
-        "Developed an interactive web application that allows users to trace building rooftops directly on high-resolution satellite imagery.",
-        "Integrated Folium satellite mapping, ArcGIS geocoding, and NASA POWER solar irradiance REST APIs for accurate location-specific yield estimation.",
-        "Implemented robust data cleaning and calculation pipelines for uploaded user energy consumption CSVs, generating payback period estimates."
+      title: "BigMart Sales Intelligence & Prediction",
+      category: "Data Analytics & Machine Learning",
+      summary:
+        "End-to-end retail sales analysis and prediction combining exploratory data analysis, feature engineering, machine learning, and an interactive Streamlit dashboard.",
+      descriptions: [
+        "Analyzed 14,204 records across 1,559 products and 10 outlets using Python, Pandas, NumPy, and data visualization.",
+        "Performed data cleaning, exploratory data analysis, visualization, and feature engineering to identify retail sales patterns and business insights.",
+        "Compared Linear Regression, Random Forest, Extra Trees, XGBoost, and LightGBM using grouped 5-fold cross-validation, grouping by Item Identifier to evaluate generalization to unseen products.",
+        "Selected Extra Trees Regressor, achieving a holdout R² of 0.6194 and MAE of ₹711.53. Grouped cross-validation achieved a mean R² of 0.5982 and MAE of ₹757.",
+        "Identified Outlet Type, MRP Segment, and Item MRP as the strongest sales drivers and developed a Streamlit app for sales prediction, model evaluation, and feature-importance analysis."
       ],
-      techStack: ["Python", "Streamlit", "Pandas", "Folium", "NASA POWER API", "ArcGIS"]
+      techStack: [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Scikit-Learn",
+        "Extra Trees",
+        "XGBoost",
+        "LightGBM",
+        "Streamlit"
+      ],
+      link: "https://bigmart-sales-intelligence-amlan-sarkar.streamlit.app/",
+      github: "https://github.com/Amlan-Sarkar/BigMart-Sales-Intelligence"
     },
+
     {
-      id: "heart-disease-prediction",
-      title: "Heart Disease Prediction App",
-      category: "Healthcare AI & Streamlit",
-      featured: true,
-      year: "2026",
-      link: "https://heart-disease-prediction-ml-algos.streamlit.app/",
-      github: "https://github.com/Aniketkumar-01",
-      image: "assets/heart_disease_banner_1.svg",
-      summary: "End-to-end diagnostic clinical web application evaluating patient cardiovascular metrics with 90.2% accuracy in real-time.",
-      description: [
-        "Constructed and deployed a predictive machine learning web application powered by a trained Random Forest model (90.2% accuracy, 0.959 AUC).",
-        "Designed an intuitive clinical input form allowing practitioners and patients to submit vital parameters (cholesterol, resting BP, ECG, thalach).",
-        "Visualized probability scores, feature contribution metrics, and risk tier recommendations with instant interactive feedback."
+      title: "Stock Market Prediction System",
+      category: "Machine Learning & Analytics",
+      summary:
+        "Interactive stock market prediction dashboard comparing deep learning, ensemble, and traditional machine learning approaches using return-based features.",
+      descriptions: [
+        "Developed an interactive Streamlit dashboard for comparing multiple stock forecasting approaches and analyzing model performance.",
+        "Built and evaluated BiLSTM, GRU, XGBoost, Random Forest, Linear Regression, and weighted Ensemble models.",
+        "Rebuilt the prediction pipeline around stationary, return-based features with a 60-day lookback after diagnosing MinMaxScaler extrapolation issues.",
+        "Evaluated forecasting performance using RMSE, MAE, MAPE, R², and directional accuracy.",
+        "Applied SHAP explainability to interpret feature contributions and understand model predictions."
       ],
-      techStack: ["Python", "Streamlit", "Scikit-learn", "Random Forest", "Data Preprocessing"]
+      techStack: [
+        "Python",
+        "Streamlit",
+        "BiLSTM",
+        "GRU",
+        "XGBoost",
+        "Random Forest",
+        "SHAP"
+      ],
+      link: "https://stock-market-prediction-amlan-sarkar.streamlit.app/",
+      github: "https://github.com/Amlan-Sarkar/Stock-Market-Prediction"
+    },
+
+    {
+      title: "Parkinson's Disease Detection System",
+      category: "Machine Learning",
+      summary:
+        "Machine learning classification system for Parkinson's disease detection using preprocessing, dimensionality reduction, class-imbalance handling, and ensemble classification.",
+      descriptions: [
+        "Worked with the UCI Parkinson's dataset containing 195 observations and 24 features.",
+        "Applied RandomOverSampler for class-imbalance handling and MinMaxScaler with a range of -1 to 1 for feature normalization.",
+        "Applied PCA to reduce the feature space to 8 components while retaining 95% of the variance.",
+        "Compared multiple classification algorithms and developed a VotingClassifier ensemble for final classification.",
+        "Authored a complete project report covering problem definition, preprocessing, methodology, model evaluation, results, and conclusions."
+      ],
+      techStack: [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Scikit-Learn",
+        "PCA",
+        "RandomOverSampler",
+        "VotingClassifier"
+      ],
     }
   ],
+
   skills: {
     languages: [
-      { name: "Python", icon: "assets/python.png", level: "Primary" },
-      { name: "JavaScript (ES6+)", icon: "assets/js.png", level: "Intermediate" },
-      { name: "HTML5", icon: "assets/html.png", level: "Advanced" },
-      { name: "CSS3", icon: "assets/css.png", level: "Advanced" },
-      { name: "SQL", icon: "assets/database.png", level: "Intermediate" }
+      {
+        name: "Python",
+        level: "Primary"
+      },
+      {
+        name: "SQL",
+        level: "Intermediate"
+      }
     ],
+
+    dataAnalysis: [
+      "Microsoft Excel",
+      "SQL",
+      "Data Cleaning",
+      "Exploratory Data Analysis (EDA)",
+      "Data Visualization"
+    ],
+
     machineLearning: [
-      { name: "Scikit-Learn", icon: "assets/python.png" },
-      { name: "Pandas & NumPy", icon: "assets/python.png" },
-      { name: "Random Forest & SVM", icon: null },
-      { name: "Model Evaluation & AUC-ROC", icon: null },
-      { name: "Feature Engineering", icon: null },
-      { name: "Hyperparameter Tuning", icon: null }
+      "Scikit-Learn",
+      "XGBoost",
+      "Feature Engineering",
+      "Predictive Modeling",
+      "Model Evaluation",
+      "Cross-Validation",
+      "SHAP Explainability"
     ],
+
     frameworksAndTools: [
-      { name: "Streamlit", icon: "assets/Streamlit.png" },
-      { name: "Git & GitHub", icon: "assets/github.png" },
-      { name: "REST APIs", icon: null },
-      { name: "Google Colab", icon: null },
-      { name: "VS Code", icon: null }
+      "Streamlit",
+      "Pandas",
+      "NumPy",
+      "VS Code",
+      "Jupyter Notebook",
+      "Git",
+      "GitHub"
     ],
+
     csFundamentals: [
-      { name: "Data Structures & Algorithms" },
-      { name: "Database Management Systems (DBMS)" },
-      { name: "Object-Oriented Programming (OOP)" },
-      { name: "Cloud Computing Fundamentals" }
+      "Data Structures & Algorithms",
+      "DBMS",
+      "Object-Oriented Programming",
+      "Computer Networks"
+    ],
+
+    softSkills: [
+      "Analytical Thinking",
+      "Problem Solving",
+      "Communication",
+      "Attention to Detail",
+      "Adaptability"
     ]
   },
+
   certifications: [
     {
-      title: "Data Analytics with AI Internship",
-      issuer: "AICTE | IBM SkillsBuild | BharatCares",
-      date: "2026",
-      credentialUrl: "https://www.skillsbuild.org/",
-      skillsLearned: ["Data Analytics", "AI Foundations", "IBM Cloud", "Python for Data Science"]
+      name: "Getting Started with Data",
+      issuer: "IBM SkillsBuild",
+      category: "Data Analytics",
+      credentialUrl: "https://www.credly.com/badges/6a72de4c-587a-45cd-bbb9-4e68d44b3753/public_url"
+    },
+    {
+      name: "Data Fundamentals",
+      issuer: "IBM SkillsBuild",
+      category: "Data Analytics",
+      credentialUrl: "https://www.credly.com/badges/5e4bad80-53e8-4d69-8c6a-b7ed1d6602c1/public_url"
+    },
+    {
+      name: "Generative AI Essentials: Using LLMs to Work with Data",
+      issuer: "IBM SkillsBuild",
+      category: "Generative AI",
+      credentialUrl: "https://www.credly.com/badges/79be1f7b-18ce-4c6a-9705-359d46a0c8a1/public_url"
+    },
+    {
+      name: "Data Analytics Essentials",
+      issuer: "Cisco Networking Academy",
+      category: "Data Analytics",
+      credentialUrl: "https://www.credly.com/badges/c72d67a3-614e-41be-b868-4e2d2920bed6/public_url"
+    },
+    {
+      name: "Introduction to Data Science",
+      issuer: "Cisco Networking Academy",
+      category: "Data Science",
+      credentialUrl: "https://www.credly.com/badges/cb0b49bb-162a-4958-940e-ad9a04a7d08b/public_url"
+    },
+    {
+      name: "Find Insights with AI",
+      issuer: "Cisco Networking Academy",
+      category: "Artificial Intelligence",
+      credentialUrl: "https://www.credly.com/badges/99109996-11ce-42f7-8460-d11c29aa8920/public_url"
+    },
+    {
+      name: "Python Essentials 1",
+      issuer: "Cisco Networking Academy",
+      category: "Python",
+      credentialUrl: "https://www.credly.com/badges/8184041a-20fe-4c68-a939-11e272c2e26c/public_url"
+    },
+    {
+      name: "Introduction to Modern AI",
+      issuer: "Cisco Networking Academy",
+      category: "Artificial Intelligence",
+      credentialUrl: "https://www.credly.com/badges/1398700b-063c-48a5-807c-e2fe04aebaaa/public_url"
     }
+  ],
+
+  interests: [
+    "Gaming",
+    "Music",
+    "Football",
+    "Badminton"
   ]
 };

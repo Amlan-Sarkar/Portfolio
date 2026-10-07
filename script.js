@@ -1,5 +1,5 @@
 /**
- * Aniket Kumar – Portfolio Engine
+ * Amlan Sarkar – Portfolio Engine
  * Minimalist Design Engineering Architecture
  * Inspired by chanhdai.com, ratneshc.com, ramx.in
  */
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --------------------------------------------------------------------------
     const emailToCopy = (typeof portfolioData !== 'undefined' && portfolioData.personalInfo && portfolioData.personalInfo.email) 
         ? portfolioData.personalInfo.email 
-        : 'aniketkr2101@gmail.com';
+        : 'amlan.sarkar404@gmail.com';
 
     function copyEmailToClipboard(triggerBtn) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -180,8 +180,212 @@ document.addEventListener('DOMContentLoaded', () => {
         bottomCopyBtn.addEventListener('click', () => copyEmailToClipboard(bottomCopyBtn));
     }
 
+        // --------------------------------------------------------------------------
+    // 7. Dynamic Portfolio Rendering
     // --------------------------------------------------------------------------
-    // 7. Command Palette Modal (Cmd+K / Ctrl+K)
+    function renderExperience() {
+        const container = document.getElementById('experience-list');
+        if (!container || typeof portfolioData === 'undefined') return;
+
+        container.innerHTML = portfolioData.experience.map(exp => `
+            <article class="timeline-item">
+                <div class="timeline-marker"></div>
+
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="timeline-role">${exp.role}</h3>
+                            <div class="timeline-company">${exp.company}</div>
+                        </div>
+                        <span class="timeline-duration">${exp.duration}</span>
+                    </div>
+
+                    <ul class="timeline-description">
+                        ${exp.description.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+
+                    <div class="timeline-skills">
+                        ${exp.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                    </div>
+
+                    ${exp.link ? `
+                        <a href="${exp.link}" target="_blank" rel="noopener noreferrer" class="timeline-link">
+                            View Experience
+                            <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                    ` : ''}
+                </div>
+            </article>
+        `).join('');
+    }
+
+    function renderProjects() {
+        const container = document.getElementById('projects-grid');
+        if (!container || typeof portfolioData === 'undefined') return;
+
+        container.innerHTML = portfolioData.projects.map(project => `
+            <article class="project-card spotlight-card">
+                <div class="project-card-header">
+                    <div>
+                        <span class="project-category">${project.category}</span>
+                        <h3 class="project-title">${project.title}</h3>
+                    </div>
+                </div>
+
+                <p class="project-summary">${project.summary}</p>
+
+                <ul class="project-description">
+                    ${project.descriptions.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+
+                <div class="project-tech-stack">
+                    ${project.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                </div>
+
+                <div class="project-actions">
+                    ${project.link ? `
+                        <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="btn-craft btn-secondary-craft">
+                            <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            <span>Live Demo</span>
+                        </a>
+                    ` : ''}
+
+                    ${project.github ? `
+                        <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="btn-craft btn-ghost-craft">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                            <span>GitHub</span>
+                        </a>
+                    ` : ''}
+                </div>
+            </article>
+        `).join('');
+
+        // Re-enable spotlight effect for dynamically created project cards
+        container.querySelectorAll('.spotlight-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.setProperty('--mouse-x', `-999px`);
+                card.style.setProperty('--mouse-y', `-999px`);
+            });
+        });
+    }
+
+    function renderSkills() {
+        const container = document.getElementById('skills-grid');
+        if (!container || typeof portfolioData === 'undefined') return;
+
+        const skillGroups = [
+            {
+                title: 'Languages',
+                icon: 'fa-code',
+                items: portfolioData.skills.languages.map(skill => skill.name)
+            },
+            {
+                title: 'Data Analysis',
+                icon: 'fa-chart-line',
+                items: portfolioData.skills.dataAnalysis
+            },
+            {
+                title: 'Machine Learning',
+                icon: 'fa-brain',
+                items: portfolioData.skills.machineLearning
+            },
+            {
+                title: 'Frameworks & Tools',
+                icon: 'fa-toolbox',
+                items: portfolioData.skills.frameworksAndTools
+            },
+            {
+                title: 'CS Fundamentals',
+                icon: 'fa-microchip',
+                items: portfolioData.skills.csFundamentals
+            },
+            {
+                title: 'Soft Skills',
+                icon: 'fa-users',
+                items: portfolioData.skills.softSkills
+            }
+        ];
+
+        container.innerHTML = skillGroups.map(group => `
+            <div class="skill-craft-card">
+                <div class="skill-card-header">
+                    <i class="fas ${group.icon}" aria-hidden="true"></i>
+                    <h3>${group.title}</h3>
+                </div>
+
+                <div class="skill-card-items">
+                    ${group.items.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function renderEducation() {
+        const container = document.getElementById('education-list');
+        if (!container || typeof portfolioData === 'undefined') return;
+
+        container.innerHTML = portfolioData.education.map(edu => `
+            <article class="education-entry">
+                <h3 class="education-degree">${edu.degree}</h3>
+                <div class="education-institution">${edu.institution}</div>
+                <div class="education-location">${edu.location}</div>
+                <div class="education-details">
+                    <span>${edu.duration}</span>
+                    <span>${edu.specialization}</span>
+                    <span>CGPA: ${edu.cgpa}</span>
+                </div>
+            </article>
+        `).join('');
+    }
+
+    function renderCertifications() {
+        const container = document.getElementById('certifications-list');
+        if (!container || typeof portfolioData === 'undefined') return;
+
+        container.innerHTML = portfolioData.certifications.map(cert => `
+            <article class="certification-entry">
+                <div class="certification-main">
+                    <h3 class="certification-name">${cert.name}</h3>
+                    <div class="certification-issuer">${cert.issuer}</div>
+                    <span class="certification-category">${cert.category}</span>
+                </div>
+
+                ${cert.credentialUrl ? `
+                    <a href="${cert.credentialUrl}" target="_blank" rel="noopener noreferrer"
+                       class="certification-link"
+                       aria-label="View ${cert.name} credential">
+                        <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    </a>
+                ` : ''}
+            </article>
+        `).join('');
+    }
+
+    function renderPortfolio() {
+        if (typeof portfolioData === 'undefined') {
+            console.error('portfolioData is not available.');
+            return;
+        }
+
+        renderExperience();
+        renderProjects();
+        renderSkills();
+        renderEducation();
+        renderCertifications();
+    }
+
+    renderPortfolio();
+
+    // --------------------------------------------------------------------------
+    // 8. Command Palette Modal (Cmd+K / Ctrl+K)
     // --------------------------------------------------------------------------
     const commandModal = document.getElementById('command-modal');
     const openCommandBtn = document.getElementById('open-command-palette');
@@ -370,7 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --------------------------------------------------------------------------
-    // 8. Interactive In-Page Smooth Navigation
+    // 9. Interactive In-Page Smooth Navigation
     // --------------------------------------------------------------------------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {

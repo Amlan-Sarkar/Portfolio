@@ -1737,3 +1737,491 @@ button {
         gap: 0.5rem;
     }
 }
+/* ==========================================================================
+   17. Dynamic Portfolio Content
+   Styles for content rendered from portfolioData
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Dynamic Experience Timeline
+   -------------------------------------------------------------------------- */
+
+.timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 12px 1fr;
+    gap: 1rem;
+    padding: 1.25rem 1.35rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--card-top-highlight);
+    transition: var(--transition);
+}
+
+.timeline-item:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.timeline-marker {
+    width: 8px;
+    height: 8px;
+    margin-top: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.timeline-content {
+    min-width: 0;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.timeline-role {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+.timeline-company {
+    margin-top: 0.2rem;
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.timeline-duration {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.55rem;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    box-shadow: var(--card-top-highlight);
+}
+
+.timeline-description {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin: 0 0 1rem;
+    padding: 0;
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.timeline-description li {
+    position: relative;
+    padding-left: 1.1rem;
+}
+
+.timeline-description li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.timeline-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.22rem 0.5rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    line-height: 1.3;
+    box-shadow: var(--card-top-highlight);
+    transition: var(--transition);
+}
+
+.skill-tag:hover {
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+    background-color: var(--surface-hover);
+}
+
+.timeline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.9rem;
+    font-size: 0.75rem;
+    color: var(--accent);
+}
+
+.timeline-link:hover {
+    opacity: 0.8;
+}
+
+.timeline-link i {
+    font-size: 0.65rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   Dynamic Project Cards
+   -------------------------------------------------------------------------- */
+
+.project-card {
+    position: relative;
+    padding: 1.4rem 1.5rem;
+    border-radius: var(--radius-md);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    box-shadow: var(--card-top-highlight);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--border-hover);
+}
+
+.project-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.project-category {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.project-summary {
+    margin-bottom: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+.project-description {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin: 0 0 1.1rem;
+    padding: 0;
+    font-size: 0.84rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.project-description li {
+    position: relative;
+    padding-left: 1.1rem;
+}
+
+.project-description li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.1rem;
+}
+
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.22rem 0.5rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    line-height: 1.3;
+    box-shadow: var(--card-top-highlight);
+    transition: var(--transition);
+}
+
+.tech-tag:hover {
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+    background-color: var(--surface-hover);
+}
+
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   Dynamic Skills
+   -------------------------------------------------------------------------- */
+
+.skill-craft-card {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--card-top-highlight);
+    transition: var(--transition);
+}
+
+.skill-craft-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.skill-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.skill-card-header i {
+    font-size: 0.88rem;
+    color: var(--accent);
+}
+
+.skill-card-header h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.skill-card-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   Dynamic Education
+   -------------------------------------------------------------------------- */
+
+.education-entry {
+    padding: 1.25rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--card-top-highlight);
+}
+
+.education-degree {
+    font-size: 0.98rem;
+    line-height: 1.4;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.education-institution {
+    margin-top: 0.3rem;
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.education-location {
+    margin-top: 0.15rem;
+    font-size: 0.76rem;
+    color: var(--text-tertiary);
+}
+
+.education-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.9rem;
+}
+
+.education-details span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    box-shadow: var(--card-top-highlight);
+}
+
+.education-details span:last-child {
+    color: var(--emerald);
+}
+
+
+/* --------------------------------------------------------------------------
+   Dynamic Certifications
+   -------------------------------------------------------------------------- */
+
+.certification-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    padding: 0.9rem 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--card-top-highlight);
+    transition: var(--transition);
+}
+
+.certification-entry + .certification-entry {
+    margin-top: 0.55rem;
+}
+
+.certification-entry:hover {
+    border-color: var(--border-hover);
+    background-color: var(--card-bg-hover);
+    transform: translateY(-1px);
+}
+
+.certification-main {
+    min-width: 0;
+}
+
+.certification-name {
+    font-size: 0.84rem;
+    line-height: 1.4;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.certification-issuer {
+    margin-top: 0.15rem;
+    font-size: 0.74rem;
+    color: var(--text-secondary);
+}
+
+.certification-category {
+    display: inline-flex;
+    margin-top: 0.35rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--accent-subtle);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+}
+
+.certification-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: var(--radius-sm);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-tertiary);
+    transition: var(--transition);
+}
+
+.certification-link:hover {
+    color: var(--accent);
+    border-color: var(--accent-border);
+    background-color: var(--accent-subtle);
+    transform: translate(1px, -1px);
+}
+
+
+/* --------------------------------------------------------------------------
+   Dynamic Content – Mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 640px) {
+
+    .timeline-item {
+        grid-template-columns: 8px 1fr;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    .timeline-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .timeline-duration {
+        align-self: flex-start;
+    }
+
+    .project-card {
+        padding: 1.15rem;
+    }
+
+    .project-title {
+        font-size: 1.1rem;
+    }
+
+    .project-actions .btn-craft {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .education-entry {
+        padding: 1rem;
+    }
+
+    .certification-entry {
+        padding: 0.8rem;
+    }
+}
