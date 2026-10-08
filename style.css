@@ -728,15 +728,15 @@ button {
 }
 
 .btn-secondary-craft {
-    background-color: var(--surface);
-    color: var(--text-primary);
-    border: 1px solid var(--border);
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #fff;
 }
 
-.btn-secondary-craft:hover {
-    background-color: var(--surface-hover);
-    border-color: var(--border-strong);
-    transform: translateY(-1px);
+[data-theme="light"] .btn-secondary-craft {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
 }
 
 .btn-ghost-craft {
@@ -987,13 +987,9 @@ button {
     box-shadow: var(--shadow-soft);
 }
 
-.project-banner-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background-color: #121215;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border);
+.project-card .project-banner-wrapper {
+    width: calc(100% + 3rem);
+    margin: -1.4rem -1.5rem 1.25rem;
 }
 
 .project-banner-img {
@@ -1035,7 +1031,18 @@ button {
     border-radius: 50%;
     background-color: var(--emerald);
     box-shadow: 0 0 6px var(--emerald);
-    animation: statusPulse 2s infinite;
+    animation: slowBlink 3s ease-in-out infinite;
+}
+
+@keyframes slowBlink {
+    0%, 100% {
+        opacity: 0.35;
+        transform: scale(0.75);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
 }
 
 .project-content-block {
@@ -1149,9 +1156,12 @@ button {
 
 .skills-craft-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.15rem;
-    align-items: start;
+}
+
+.skills-craft-grid > .skill-craft-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
 }
 
 .skill-craft-card {
@@ -1213,21 +1223,14 @@ button {
     flex-shrink: 0;
 }
 
-@media (max-width: 800px) {
-    .skills-craft-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* --------------------------------------------------------------------------
    11. Education & Certifications
    -------------------------------------------------------------------------- */
 
 .edu-cert-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .craft-subpanel {
@@ -1332,8 +1335,9 @@ button {
    ========================= */
 
 #certifications-list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
 }
 
 .certification-entry {
@@ -1420,18 +1424,6 @@ button {
    Responsive
    ========================= */
 
-@media (max-width: 800px) {
-    .edu-cert-columns {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 700px) {
-    .certification-entry {
-        gap: 0.7rem;
-        padding: 0.75rem 0;
-    }
-
     .certification-name {
         font-size: 0.84rem;
     }
@@ -1447,7 +1439,6 @@ button {
     .certification-link {
         width: 28px;
         height: 28px;
-    }
 }
 
 /* --------------------------------------------------------------------------
@@ -1844,8 +1835,8 @@ button {
         grid-template-columns: 1fr;
     }
 
-    .edu-cert-columns {
-        grid-template-columns: 1fr;
+    #certifications-list {
+    grid-template-columns: 1fr;
     }
 
     .contact-channel-grid {
@@ -2104,12 +2095,12 @@ button {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    margin-bottom: 1.1rem;
 }
 
 .tech-tag {
     display: inline-flex;
     align-items: center;
+    gap: 0.4rem;
     padding: 0.22rem 0.5rem;
     border-radius: var(--radius-sm);
     background-color: var(--surface);
@@ -2134,6 +2125,9 @@ button {
     gap: 0.5rem;
 }
 
+.project-card .project-banner-wrapper {
+    margin: -1.4rem -1.5rem 1.25rem;
+}
 
 /* --------------------------------------------------------------------------
    Dynamic Skills
@@ -2257,10 +2251,6 @@ button {
     transition: var(--transition);
 }
 
-.certification-entry + .certification-entry {
-    margin-top: 0.55rem;
-}
-
 .certification-entry:hover {
     border-color: var(--border-hover);
     background-color: var(--card-bg-hover);
@@ -2324,6 +2314,11 @@ button {
 
 @media (max-width: 640px) {
 
+    .project-card .project-banner-wrapper {
+    width: calc(100% + 2.3rem);
+    margin: -1.15rem -1.15rem 1rem;
+   }
+    
     .timeline-item {
         grid-template-columns: 8px 1fr;
         gap: 0.75rem;

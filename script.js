@@ -197,7 +197,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             <h3 class="timeline-role">${exp.role}</h3>
                             <div class="timeline-company">${exp.company}</div>
                         </div>
-                        <span class="timeline-duration">${exp.duration}</span>
+                        <span class="timeline-duration">
+                            <i class="fas fa-calendar-days" aria-hidden="true"></i>&nbsp;
+                            ${exp.duration}
+                        </span>
                     </div>
 
                     <ul class="timeline-description">
@@ -205,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </ul>
 
                     <div class="timeline-skills">
-                        ${exp.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                    ${exp.skills.map(skill => `<span class="skill-tag">${techIcon(skill)}${skill}</span>`).join('')}
                     </div>
 
                     ${exp.link ? `
@@ -219,18 +222,76 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
     }
 
+        // Tech icons: map a tech name to its image path in assets/
+    const TECH_ICONS = {
+        'Python': 'assets/python.png',
+        'Streamlit': 'assets/streamlit.png',
+        'Pandas': 'assets/pandas.png',
+        'NumPy': 'assets/numpy.png',
+        'Matplotlib': 'assets/matplotlib.png',
+        'Seaborn': 'assets/seaborn.png',
+        'Scikit-Learn': 'assets/scikit-learn.png',
+        'Git': 'assets/git.png',
+        'GitHub': 'assets/github.png',
+        'LinkedIn': 'assets/linkedin.png',
+        'SQL': 'assets/database.png',
+        'Pandas': 'assets/pandas.png',
+        'NumPy': 'assets/numpy.png',
+        'Scikit-Learn': 'assets/scikit-learn.png',
+        'SHAP': 'assets/shap.png',
+        'Microsoft Excel': 'assets/excel.png',
+        'VS Code': 'assets/vscode.png',
+        'Jupyter Notebook': 'assets/jupyter.png'
+    };
+
+    function techIcon(name) {
+        const src = TECH_ICONS[name];
+        if (!src) return '';
+        // onerror removes the image if the file is missing, so no broken icon shows
+        return `<img class="skill-icon-img" src="${src}" alt="" aria-hidden="true" loading="lazy" onerror="this.remove()">`;
+    }
+
     function renderProjects() {
         const container = document.getElementById('projects-grid');
         if (!container || typeof portfolioData === 'undefined') return;
 
         container.innerHTML = portfolioData.projects.map(project => `
             <article class="project-card spotlight-card">
-                <div class="project-card-header">
-                    <div>
-                        <span class="project-category">${project.category}</span>
-                        <h3 class="project-title">${project.title}</h3>
-                    </div>
+                        ${project.banner ? `
+                <div class="project-banner-wrapper">
+                    <img class="project-banner-img" src="${project.banner}" alt="${project.title} banner" loading="lazy">
+                    ${project.link ? `
+                        <div class="banner-overlay-tags">
+                            <span class="banner-status-badge">
+                                <span class="badge-dot-live" aria-hidden="true"></span>
+                                Live Deployment
+                            </span>
+                        </div>
+                    ` : ''}
                 </div>
+            ` : ''}
+                <div class="project-card-header">
+    <div>
+        <span class="project-category">${project.category}</span>
+        <h3 class="project-title">${project.title}</h3>
+    </div>
+
+    <div class="project-actions">
+        ${project.link ? `
+            <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="btn-craft btn-secondary-craft">
+                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                <span>Live App</span>
+            </a>
+        ` : ''}
+
+        ${project.github ? `
+            <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="btn-craft btn-ghost-craft">
+                <i class="fab fa-github" aria-hidden="true"></i>
+                <span>GitHub</span>
+            </a>
+        ` : ''}
+    </div>
+</div>
 
                 <p class="project-summary">${project.summary}</p>
 
@@ -239,24 +300,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 </ul>
 
                 <div class="project-tech-stack">
-                    ${project.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                ${project.techStack.map(tech => `<span class="tech-tag">${techIcon(tech)}${tech}</span>`).join('')}
                 </div>
 
-                <div class="project-actions">
-                    ${project.link ? `
-                        <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="btn-craft btn-secondary-craft">
-                            <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-                            <span>Live Demo</span>
-                        </a>
-                    ` : ''}
-
-                    ${project.github ? `
-                        <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="btn-craft btn-ghost-craft">
-                            <i class="fab fa-github" aria-hidden="true"></i>
-                            <span>GitHub</span>
-                        </a>
-                    ` : ''}
-                </div>
             </article>
         `).join('');
 
@@ -322,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
 
                 <div class="skill-card-items">
-                    ${group.items.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                    ${group.items.map(skill => `<span class="skill-tag">${techIcon(skill)}${skill}</span>`).join('')}
                 </div>
             </div>
         `).join('');

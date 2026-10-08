@@ -81,10 +81,11 @@ const portfolioData = {
     {
       title: "BigMart Sales Intelligence & Prediction",
       category: "Data Analytics & Machine Learning",
+      banner: "assets/bigmart-sales-banner.svg",
       summary:
         "End-to-end retail sales analysis and prediction combining exploratory data analysis, feature engineering, machine learning, and an interactive Streamlit dashboard.",
       descriptions: [
-        "Analyzed 14,204 records across 1,559 products and 10 outlets using Python, Pandas, NumPy, and data visualization.",
+        "Analyzed 14,204 records(train and test combined) across 1,559 products and 10 outlets using Python, Pandas, NumPy, and data visualization.",
         "Performed data cleaning, exploratory data analysis, visualization, and feature engineering to identify retail sales patterns and business insights.",
         "Compared Linear Regression, Random Forest, Extra Trees, XGBoost, and LightGBM using grouped 5-fold cross-validation, grouping by Item Identifier to evaluate generalization to unseen products.",
         "Selected Extra Trees Regressor, achieving a holdout R² of 0.6194 and MAE of ₹711.53. Grouped cross-validation achieved a mean R² of 0.5982 and MAE of ₹757.",
@@ -107,6 +108,7 @@ const portfolioData = {
     {
       title: "Stock Market Prediction System",
       category: "Machine Learning & Analytics",
+      banner: "assets/stock-prediction-banner.svg",
       summary:
         "Interactive stock market prediction dashboard comparing deep learning, ensemble, and traditional machine learning approaches using return-based features.",
       descriptions: [
@@ -132,6 +134,7 @@ const portfolioData = {
     {
       title: "Parkinson's Disease Detection System",
       category: "Machine Learning",
+      banner: "assets/parkinsons-detection-banner.svg",
       summary:
         "Machine learning classification system for Parkinson's disease detection using preprocessing, dimensionality reduction, class-imbalance handling, and ensemble classification.",
       descriptions: [
