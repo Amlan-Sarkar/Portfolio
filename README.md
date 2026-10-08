@@ -66,4 +66,6 @@ The site is deployed on [Vercel](https://vercel.com). It's a static site, so Ver
 
 ## License
 
-MIT License
+Copyright (c) 2026 Amlan Sarkar. All rights reserved.
+
+The content of this site is personal and may not be reused without permission. See [LICENSE](LICENSE) for the full terms.
